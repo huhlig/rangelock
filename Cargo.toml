@@ -1,0 +1,23 @@
+[package]
+name = "rangelock"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+authors = ["Hans W. Uhlig <huhlig+rangelock@gmail.com>"]
+description = """
+A range-based read-write lock implementation that enables concurrent access to different ranges of a contiguous data
+structure. Supports multiple readers or single writer per range, with non-overlapping ranges allowing parallel access.
+Ideal for concurrent processing of large arrays or vectors where different threads need to work on different sections
+simultaneously."""
+
+[dependencies]
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[profile.bench]
+debug = false
+
+[[bench]]
+name = "benchmark"
+harness = false
